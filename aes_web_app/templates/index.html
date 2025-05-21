@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã hóa & Giải mã File (AES)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Mã hóa & Giải mã File với AES</h1>
+
+        <div class="section">
+            <h2>1. Mã hóa File</h2>
+            <form action="/encrypt" method="post" enctype="multipart/form-data">
+                <label for="encrypt_file">Chọn file để mã hóa:</label>
+                <input type="file" id="encrypt_file" name="file" required>
+                <br>
+                <label for="encrypt_password">Nhập khóa (mật khẩu):</label>
+                <input type="password" id="encrypt_password" name="password" required>
+                <br>
+                <button type="submit">Mã hóa</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>2. Giải mã File</h2>
+            <form action="/decrypt" method="post" enctype="multipart/form-data">
+                <label for="decrypt_file">Chọn file đã mã hóa:</label>
+                <input type="file" id="decrypt_file" name="file" required>
+                <br>
+                <label for="decrypt_password">Nhập khóa (mật khẩu):</label>
+                <input type="password" id="decrypt_password" name="password" required>
+                <br>
+                <button type="submit">Giải mã</button>
+            </form>
+        </div>
+
+        <div class="notes">
+            <h3>Lưu ý:</h3>
+            <ul>
+                <li>Sử dụng cùng một khóa để mã hóa và giải mã.</li>
+                <li>Khóa có độ dài tùy ý.</li>
+                <li>Đây là một ứng dụng demo, không dùng cho dữ liệu cực kỳ nhạy cảm trong môi trường sản xuất.</li>
+                <li>Chức năng upload/download file tích hợp sẵn.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
